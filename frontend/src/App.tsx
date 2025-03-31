@@ -16,7 +16,7 @@ export const App = () => {
 
     try {
       const query = country ? `?city=${city}&country=${country}` : `?city=${city}`;
-      const response = await fetch(`http://localhost:3001/weather${query}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/weather${query}`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch weather data');
@@ -33,7 +33,7 @@ export const App = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await fetch('http://localhost:3001/history');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/history`);
       const data = await response.json();
       setHistory(data);
     } catch (err) {

@@ -3,7 +3,6 @@ import axios from "axios";
 import { WeatherRequest } from "../types";
 
 const router = Router();
-const API_KEY = "06c9b522039d4f64a24192301252903";
 export const weatherHistory: WeatherRequest[] = [];
 
 router.get("/", async (req: Request, res: Response) => {
@@ -16,9 +15,9 @@ router.get("/", async (req: Request, res: Response) => {
   try {
     const query = country ? `${city},${country}` : city;
     const response = await axios.get(
-      `http://api.weatherapi.com/v1/current.json?key=06c9b522039d4f64a24192301252903&q=${city}&aqi=no`
+      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API}&q=${city}&aqi=no`
     );
-    console.log("respones->", response.data);
+
     const weatherData = {
       city: response.data.location.name,
       country: response.data.location.country,

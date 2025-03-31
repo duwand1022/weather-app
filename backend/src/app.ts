@@ -3,6 +3,8 @@ import cors from "cors";
 import weatherRouter from "./routes/weather";
 import historyRouter from "./routes/history";
 
+require("dotenv").config();
+
 const app = express();
 const PORT = 3001;
 

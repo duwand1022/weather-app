@@ -1,15 +1,6 @@
-interface WeatherDisplayProps {
-  weather: {
-    city: string;
-    country: string;
-    temperature: number;
-    humidity: number;
-    condition: string;
-    icon: string;
-  } | null;
-}
+import { WeatherResponse } from "../types";
 
-export const WeatherDisplay = ({ weather }: WeatherDisplayProps) => {
+export const WeatherDisplay = ({ weather }: { weather: WeatherResponse | null }) => {
   if (!weather) return null;
 
   return (
